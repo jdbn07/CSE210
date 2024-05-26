@@ -10,12 +10,12 @@ public class GoalManager
 
     public void Start()
     {
-        string choice; // If is string: string choice; ||||| If it's var, it must be initialized --> var choice = "";..... ITS BETTER USE STRING
+        string choice; 
 
         do
-        {Console.WriteLine(""); // Move to the next line
-            Console.WriteLine($"> Your actual score is: {_score}"); // With this I can print the current score
-            Console.WriteLine(""); // Move to the next line
+        {Console.WriteLine(""); 
+            Console.WriteLine($"> Your actual score is: {_score}"); 
+            Console.WriteLine(""); 
             Console.WriteLine("Menu Options");
             Console.WriteLine("     1. Create New Goal");
             Console.WriteLine("     2. List goals");
@@ -102,24 +102,24 @@ public class GoalManager
     public void CreateGoal()
     {
         string choice1;
-        Console.WriteLine(" "); // BLANK
+        Console.WriteLine(" "); 
         Console.WriteLine("The types of goals are: ");
         Console.WriteLine("   1. Simple Goal");
         Console.WriteLine("   2. Eternal Goal");
         Console.WriteLine("   3. Checklist Goal");
         Console.Write("Which type of goal would you like to create? ");
         choice1 = Console.ReadLine();
-        Console.WriteLine(""); // Move to the next line
+        Console.WriteLine(""); 
 
         Console.Write("What is the name of your goal? ");
         string name = Console.ReadLine();
-        Console.WriteLine(""); // Move to the next line
+        Console.WriteLine(""); 
         Console.Write("What is a short description of it: ");
         string description = Console.ReadLine();
-        Console.WriteLine(""); // Move to the next line
+        Console.WriteLine(""); 
         Console.Write("What is the ammount of points associated with this goal?: ");
         int points = int.Parse(Console.ReadLine());
-        Console.WriteLine(""); // Move to the next line
+        Console.WriteLine(""); 
 
         if (choice1 == "1")
         {
@@ -133,10 +133,10 @@ public class GoalManager
         {
             Console.Write("How many times does this goal need to be accomplished for a bonus? ");
             int target = int.Parse(Console.ReadLine());
-            Console.WriteLine(); // Move to the next line
+            Console.WriteLine(); 
             Console.Write("What is the bonus for accomplishing it that many times? ");
             int bonus = int.Parse(Console.ReadLine());
-            Console.WriteLine(); // Move to the next line
+            Console.WriteLine(); 
             _goals.Add(new ChecklistGoal(name, description, points, target, bonus));
         }
     }
@@ -147,7 +147,7 @@ public class GoalManager
         ListGoalNames();
         Console.Write("Which goal did you accomplished?: ");
         int get = int.Parse(Console.ReadLine());
-        Console.WriteLine(); // Move to the next line
+        Console.WriteLine(); 
         int index = get - 1;
         int points = _goals[index].RecordEvent();
         if (points == 0)
@@ -164,17 +164,17 @@ public class GoalManager
     {
         Console.Write("With what name you want to save the file: ");
         string fileName = Console.ReadLine();
-        Console.WriteLine(); // Move the cursor
+        Console.WriteLine(); 
         using StreamWriter outputFile = new(fileName);
-        outputFile.WriteLine(_score); // This prints the score in the first line
+        outputFile.WriteLine(_score); 
         foreach (Goal goal in _goals)
         {
             outputFile.WriteLine(goal.GetStringRepresentation());
         }
         Console.WriteLine($"File saved as {fileName}");
         _score = 0;
-        Console.WriteLine(""); // BLANK
-        _goals.Clear(); //  This part will clear the list when the file is already save it
+        Console.WriteLine(""); 
+        _goals.Clear(); 
     }
 
     public void LoadGoals(string fileName)

@@ -19,9 +19,9 @@ public abstract class Goal
 
     public virtual string GetDetailsString()
     {
-        //          CONDITION   ? TRUE : FALSE
-        char mark = IsComplete()?'x':' '; // Tenary operator 'x TRUE' : ' FALSE '. "" --> String ||| '' ---> Single Character 
-        return $"[{mark}] {_shortName} ({_description})"; // 
+        
+        char mark = IsComplete()?'x':' '; 
+        return $"[{mark}] {_shortName} ({_description})"; 
     }
 
     public virtual string GetDetailString2()

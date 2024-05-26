@@ -14,7 +14,7 @@ public class EternalGoal : Goal
 
     public override bool IsComplete()
     {
-        return false; // It can be never completed, so false
+        return false; 
     }
 
     public override string GetStringRepresentation()

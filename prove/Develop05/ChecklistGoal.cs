@@ -9,16 +9,16 @@ public class ChecklistGoal : Goal
     {
         _target = target;
         _bonus = bonus;
-        _amountCompleted = 0; // 
-        _isComplete = false; // First time running
+        _amountCompleted = 0;
+        _isComplete = false; 
     }
 
     public ChecklistGoal(string name, string description, int points, int target, int bonus, int amount, bool isComplete) : base(name, description, points)
     {
         _target = target;
         _bonus = bonus;
-        _amountCompleted = amount; // 
-        _isComplete = isComplete; // Loading from a file
+        _amountCompleted = amount; 
+        _isComplete = isComplete; 
     }
 
     public override int RecordEvent()
